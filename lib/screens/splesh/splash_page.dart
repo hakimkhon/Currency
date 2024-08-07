@@ -16,7 +16,7 @@ class SplashPage extends StatelessWidget {
               return Center(child: Text(snapshot.error.toString()));
             }
             return Center(
-              child: Lottie.asset(LottieAssets.lottieSpalsh, fit: BoxFit.fill),
+              child: Lottie.asset(LottieAssets.lottieSpalsh),
             );
           }),
     );

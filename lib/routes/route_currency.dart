@@ -15,8 +15,10 @@ class RouteCurrency {
     switch (settings.name) {
       case RouteCurrencyNames.home:
         return MaterialPageRoute(
-            builder: (context) => HomePage(
-                currencyData: settings.arguments as List<CurrencyModelCbu>));
+          builder: (context) => HomePage(
+            currencyData: settings.arguments as List<CurrencyModelCbu>,
+          ),
+        );
       case RouteCurrencyNames.splash:
         return MaterialPageRoute(builder: (context) => const SplashPage());
       case RouteCurrencyNames.convertion:

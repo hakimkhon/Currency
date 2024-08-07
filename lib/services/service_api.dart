@@ -8,11 +8,15 @@ class ServiceApi {
   static Future<CurrencyModelCbu?> getCurrency(context) async {
     try {
       Response res = await Dio().get(ConstUrls.urlApiCBU);
+      List<CurrencyModelCbu> list =
       (res.data as List).map((e) => CurrencyModelCbu.fromJson(e)).toList();
+      
       Navigator.pushNamedAndRemoveUntil(
         context,
         RouteCurrencyNames.home,
-        (predicate) => false,
+        (Route<dynamic> route) => false,
+        arguments: list,
+
       );
     } catch (e) {
       // ignore: avoid_print
@@ -20,6 +24,22 @@ class ServiceApi {
     }
     return null;
   }
+
+  // static Future<CurrencyModelCbu?> getCurrency(context) async {
+  //   try {
+  //     Response res = await Dio().get(ConstUrls.urlApiCBU);
+  //     (res.data as List).map((e) => CurrencyModelCbu.fromJson(e)).toList();
+  //     Navigator.pushNamedAndRemoveUntil(
+  //       context,
+  //       RouteCurrencyNames.home,
+  //       (predicate) => false,
+  //     );
+  //   } catch (e) {
+  //     // ignore: avoid_print
+  //     print("Error: $e");
+  //   }
+  //   return null;
+  // }
 }
 
 /**
