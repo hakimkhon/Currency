@@ -1,16 +1,11 @@
 import 'package:currency/core/constants/const_sizes.dart';
 import 'package:flutter/material.dart';
 
-class Test extends StatefulWidget {
-  const Test({super.key});
+class TestWidget extends StatelessWidget {
+  const TestWidget({super.key, required this.price, required this.currencyName});
 
-  @override
-  State<Test> createState() => _TestState();
-}
-
-
-class _TestState extends State<Test> {
-  static int soncha = 0;
+  final double price;
+  final String currencyName;
 
   @override
   Widget build(BuildContext context) {
@@ -23,16 +18,30 @@ class _TestState extends State<Test> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Text(
-              "1 USD = ${soncha} USZ",
-              style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
+              "1 $currencyName = $price USZ",
+              style: const TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
             ),
             Text(
-              "1 UZS = 1/USD",
-              style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
+              "1 UZS = ${checkPrice()} $currencyName",
+              style: const TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
             ),
           ],
         ),
       ),
     );
   }
+  checkPrice(){
+  try{
+   return (1/price).toString().substring(0, 10);
+  }catch(e){
+    if(price == 0){
+      return 0;
+    }else{
+      return 1/price;
+    }
+
+  }
+  
+
+}
 }

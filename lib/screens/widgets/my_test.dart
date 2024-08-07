@@ -18,11 +18,11 @@ class MyTest extends StatelessWidget {
           children: [
             Text(
               "1 $title = $son USZ",
-              style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
             ),
             Text(
               "1 UZS = ${1/son} USD",
-              style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
             ),
           ],
         ),
